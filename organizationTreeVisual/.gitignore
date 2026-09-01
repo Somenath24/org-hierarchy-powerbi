@@ -1,0 +1,8 @@
+node_modules/
+.tmp/
+*.log
+coverage/
+webpack.statistics.prod.html
+
+# keep the built .pbiviz deliverable, ignore its loose sibling package.json
+dist/package.json

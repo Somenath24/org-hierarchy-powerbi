@@ -1,0 +1,22 @@
+*.pbix
+*.pbit
+.pbi/
+*.abf
+*.bak
+~$*
+.DS_Store
+Thumbs.db
+
+# Node / custom visual tooling
+node_modules/
+.tmp/
+webpack.statistics.*.html
+*.log
+npm-debug.log*
+
+# keep dist/*.pbiviz (the built deliverable), ignore its loose sibling package.json
+OrganizationTreeVisual/dist/package.json
+
+# PBIP local-only files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

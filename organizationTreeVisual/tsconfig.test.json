@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es2022",
+        "module": "commonjs",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "declaration": false,
+        "lib": ["es2022", "dom"],
+        "types": ["jest", "node"]
+    },
+    "include": ["src/**/*.ts", "test/**/*.ts"]
+}

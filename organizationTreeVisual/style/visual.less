@@ -1,0 +1,81 @@
+.otv-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Segoe UI", "Segoe UI Web", Arial, sans-serif;
+    background: #FAFBFC;
+}
+
+.otv-svg {
+    display: block;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.otv-node {
+    cursor: pointer;
+}
+
+.otv-card-bg {
+    fill: #FFFFFF;
+    stroke: #D9DCE3;
+    stroke-width: 1;
+    filter: drop-shadow(0 1px 2px rgba(16, 24, 40, 0.08));
+}
+
+.otv-card-manager {
+    stroke: #4C6EF5;
+    stroke-width: 1.5;
+}
+
+.otv-card-ic {
+    stroke: #D9DCE3;
+    stroke-width: 1;
+}
+
+.otv-card-selected {
+    stroke: #E8590C;
+    stroke-width: 2.5;
+}
+
+.otv-expand-glyph {
+    cursor: pointer;
+}
+
+.otv-status-banner {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 14px;
+    background: #FFF4E6;
+    border: 1px solid #FFD8A8;
+    border-radius: 6px;
+    color: #7A4A00;
+    font-size: 12px;
+    z-index: 5;
+}
+
+.otv-back-to-top {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    z-index: 10;
+    padding: 6px 12px;
+    background: #FFFFFF;
+    border: 1px solid #D9DCE3;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(16, 24, 40, 0.12);
+    font-size: 12px;
+    font-weight: 600;
+    color: #1A1D29;
+    cursor: pointer;
+
+    &:hover {
+        background: #F1F3F5;
+    }
+}

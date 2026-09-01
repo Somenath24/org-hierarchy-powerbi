@@ -1,0 +1,29 @@
+{
+  "version": "1.0.1.0",
+  "author": {
+    "name": "Somenath Sit",
+    "email": "aarsay.sit@gmail.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/organizationTreeVisual017D3F387FC247D9873BDFAE44E9015C.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "organizationTreeVisual017D3F387FC247D9873BDFAE44E9015C",
+    "name": "organizationTreeVisual",
+    "displayName": "Organization Tree",
+    "version": "1.0.1.0",
+    "description": "Interactive, zoomable organization chart for HR analytics: renders an employee reporting hierarchy from flat employeeId/managerId data with expand/collapse, re-rooting, and Power BI cross-visual selection.",
+    "supportUrl": "https://github.com/aarsay-sit/OrganizationTreeVisual/issues",
+    "gitHubUrl": "https://github.com/aarsay-sit/OrganizationTreeVisual",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

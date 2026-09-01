@@ -1,0 +1,162 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Employee ID",
+            "name": "employeeId",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Employee Name",
+            "name": "employeeName",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Manager ID",
+            "name": "managerId",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Manager Name",
+            "name": "managerName",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Designation",
+            "name": "designation",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Department",
+            "name": "department",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Team",
+            "name": "team",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Management Level",
+            "name": "managementLevel",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Metrics",
+            "name": "metrics",
+            "kind": "Measure"
+        }
+    ],
+    "objects": {
+        "cardLayout": {
+            "displayName": "Card layout",
+            "properties": {
+                "cardWidth": {
+                    "displayName": "Card width",
+                    "type": { "numeric": true }
+                },
+                "cardHeight": {
+                    "displayName": "Card height",
+                    "type": { "numeric": true }
+                },
+                "horizontalSpacing": {
+                    "displayName": "Horizontal spacing",
+                    "type": { "numeric": true }
+                },
+                "verticalSpacing": {
+                    "displayName": "Vertical spacing",
+                    "type": { "numeric": true }
+                },
+                "fontSize": {
+                    "displayName": "Font size",
+                    "type": { "formatting": { "fontSize": true } }
+                }
+            }
+        },
+        "connector": {
+            "displayName": "Connectors",
+            "properties": {
+                "style": {
+                    "displayName": "Connector style",
+                    "type": {
+                        "enumeration": [
+                            { "displayName": "Curved", "value": "curved" },
+                            { "displayName": "Orthogonal", "value": "orthogonal" }
+                        ]
+                    }
+                },
+                "color": {
+                    "displayName": "Connector color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                }
+            }
+        },
+        "metricsDisplay": {
+            "displayName": "Metrics display",
+            "properties": {
+                "showDesignation": {
+                    "displayName": "Show designation",
+                    "type": { "bool": true }
+                },
+                "showMetric1": {
+                    "displayName": "Show 1st metric",
+                    "type": { "bool": true }
+                },
+                "showMetric2": {
+                    "displayName": "Show 2nd metric",
+                    "type": { "bool": true }
+                },
+                "showDirectReportsCount": {
+                    "displayName": "Show direct reports count",
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "navigation": {
+            "displayName": "Root navigation",
+            "properties": {
+                "autoExpandLevels": {
+                    "displayName": "Auto-expand levels from root",
+                    "type": { "numeric": true }
+                },
+                "maxInitialNodes": {
+                    "displayName": "Max nodes shown before collapsing",
+                    "type": { "numeric": true }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "employeeId": { "max": 1 },
+                    "employeeName": { "max": 1 },
+                    "managerId": { "max": 1 },
+                    "managerName": { "max": 1 },
+                    "designation": { "max": 1 },
+                    "department": { "max": 1 },
+                    "team": { "max": 1 },
+                    "managementLevel": { "max": 1 },
+                    "metrics": { "max": 8 }
+                }
+            ],
+            "table": {
+                "rows": {
+                    "select": [
+                        { "for": { "in": "employeeId" } },
+                        { "for": { "in": "employeeName" } },
+                        { "for": { "in": "managerId" } },
+                        { "for": { "in": "managerName" } },
+                        { "for": { "in": "designation" } },
+                        { "for": { "in": "department" } },
+                        { "for": { "in": "team" } },
+                        { "for": { "in": "managementLevel" } },
+                        { "for": { "in": "metrics" } }
+                    ],
+                    "dataReductionAlgorithm": { "top": { "count": 30000 } }
+                }
+            }
+        }
+    ],
+    "privileges": []
+}

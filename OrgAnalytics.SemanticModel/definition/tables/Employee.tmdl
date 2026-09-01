@@ -1,0 +1,432 @@
+table Employee
+	lineageTag: e1a2b3c4-d5e6-4f70-8192-93a4b5c6d7e8
+
+	measure 'Total Employees' = COUNTROWS(Employee)
+		formatString: #,0
+		lineageTag: 10000001-0000-0000-0000-000000000001
+
+	measure 'Total Managers' =
+			CALCULATE(
+			    COUNTROWS(Employee),
+			    Employee[DirectReports] > 0
+			)
+		formatString: #,0
+		lineageTag: 10000001-0000-0000-0000-000000000002
+
+	measure 'Total Teams' = DISTINCTCOUNT(Employee[Team])
+		formatString: #,0
+		lineageTag: 10000001-0000-0000-0000-000000000003
+
+	measure 'Average Performance' = AVERAGE(Employee[PerformanceScore])
+		formatString: 0.0
+		lineageTag: 10000001-0000-0000-0000-000000000004
+
+	measure 'Average Salary' = AVERAGE(Employee[AnnualSalaryINR])
+		formatString: \₹#,0
+		lineageTag: 10000001-0000-0000-0000-000000000005
+
+	measure 'Average Attendance' = AVERAGE(Employee[AttendancePct])
+		formatString: 0.0"%"
+		lineageTag: 10000001-0000-0000-0000-000000000006
+
+	measure 'Average Engagement' = AVERAGE(Employee[EngagementScore])
+		formatString: 0.0
+		lineageTag: 10000001-0000-0000-0000-000000000007
+
+	measure 'Average Goals Achieved' = AVERAGE(Employee[GoalsAchievedPct])
+		formatString: 0.0"%"
+		lineageTag: 10000001-0000-0000-0000-000000000008
+
+	measure 'Low Performer Count' =
+			CALCULATE(
+			    COUNTROWS(Employee),
+			    Employee[LowPerformerFlag] = TRUE
+			)
+		formatString: #,0
+		lineageTag: 10000001-0000-0000-0000-000000000009
+
+	measure 'Promotion Eligible Count' =
+			CALCULATE(
+			    COUNTROWS(Employee),
+			    Employee[PromotionEligible] = TRUE
+			)
+		formatString: #,0
+		lineageTag: 10000001-0000-0000-0000-00000000000a
+
+	measure 'Average Attrition Risk' = AVERAGE(Employee[AttritionRiskPct])
+		formatString: 0.0"%"
+		lineageTag: 10000001-0000-0000-0000-00000000000b
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeName
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: EmployeeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000003
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagementLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-000000000004
+		summarizeBy: none
+		sourceColumn: ManagementLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagementScope
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000005
+		summarizeBy: none
+		sourceColumn: ManagementScope
+
+		annotation SummarizationSetBy = Automatic
+
+	column Designation
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000006
+		summarizeBy: none
+		sourceColumn: Designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000007
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000008
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-000000000009
+		summarizeBy: none
+		sourceColumn: ManagerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerName
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-00000000000a
+		summarizeBy: none
+		sourceColumn: ManagerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HierarchyPath
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-00000000000b
+		summarizeBy: none
+		sourceColumn: HierarchyPath
+
+		annotation SummarizationSetBy = Automatic
+
+	column HierarchyDepth
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-00000000000c
+		summarizeBy: none
+		sourceColumn: HierarchyDepth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DirectReports
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-00000000000d
+		summarizeBy: sum
+		sourceColumn: DirectReports
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubtreeEmployeeCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-00000000000e
+		summarizeBy: none
+		sourceColumn: SubtreeEmployeeCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeLocation
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-00000000000f
+		summarizeBy: none
+		sourceColumn: OfficeLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeHoursStart
+		dataType: dateTime
+		formatString: Short Time
+		lineageTag: 00000001-0000-0000-0000-000000000010
+		summarizeBy: none
+		sourceColumn: OfficeHoursStart
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column OfficeHoursEnd
+		dataType: dateTime
+		formatString: Short Time
+		lineageTag: 00000001-0000-0000-0000-000000000011
+		summarizeBy: none
+		sourceColumn: OfficeHoursEnd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column EmploymentType
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000012
+		summarizeBy: none
+		sourceColumn: EmploymentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmploymentStatus
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000013
+		summarizeBy: none
+		sourceColumn: EmploymentStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfJoining
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 00000001-0000-0000-0000-000000000014
+		summarizeBy: none
+		sourceColumn: DateOfJoining
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YearsOfService
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-000000000015
+		summarizeBy: average
+		sourceColumn: YearsOfService
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnnualSalaryINR
+		dataType: int64
+		formatString: \₹#,0
+		lineageTag: 00000001-0000-0000-0000-000000000016
+		summarizeBy: sum
+		sourceColumn: AnnualSalaryINR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthlySalaryINR
+		dataType: int64
+		formatString: \₹#,0
+		lineageTag: 00000001-0000-0000-0000-000000000017
+		summarizeBy: sum
+		sourceColumn: MonthlySalaryINR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PerformanceScore
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-000000000018
+		summarizeBy: average
+		sourceColumn: PerformanceScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column AppraisalRating
+		dataType: string
+		lineageTag: 00000001-0000-0000-0000-000000000019
+		summarizeBy: none
+		sourceColumn: AppraisalRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column LowPerformerFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 00000001-0000-0000-0000-00000000001a
+		summarizeBy: none
+		sourceColumn: LowPerformerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttendancePct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 00000001-0000-0000-0000-00000000001b
+		summarizeBy: average
+		sourceColumn: AttendancePct
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeaveDaysYTD
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-00000000001c
+		summarizeBy: average
+		sourceColumn: LeaveDaysYTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column OvertimeHoursYTD
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-00000000001d
+		summarizeBy: average
+		sourceColumn: OvertimeHoursYTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column EngagementScore
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-00000000001e
+		summarizeBy: average
+		sourceColumn: EngagementScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalsAchievedPct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 00000001-0000-0000-0000-00000000001f
+		summarizeBy: average
+		sourceColumn: GoalsAchievedPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrainingHoursYTD
+		dataType: double
+		formatString: 0.0
+		lineageTag: 00000001-0000-0000-0000-000000000020
+		summarizeBy: average
+		sourceColumn: TrainingHoursYTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectsAssigned
+		dataType: int64
+		formatString: 0
+		lineageTag: 00000001-0000-0000-0000-000000000021
+		summarizeBy: average
+		sourceColumn: ProjectsAssigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column UtilizationPct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 00000001-0000-0000-0000-000000000022
+		summarizeBy: average
+		sourceColumn: UtilizationPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttritionRiskPct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 00000001-0000-0000-0000-000000000023
+		summarizeBy: average
+		sourceColumn: AttritionRiskPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionEligible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 00000001-0000-0000-0000-000000000024
+		summarizeBy: none
+		sourceColumn: PromotionEligible
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Employee = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(
+				        File.Contents("c:\Users\Somenath\Desktop\Drive\Somenath\Code\powerbi\organization_employee_synthetic_1000_final.csv"),
+				        [Delimiter = ",", Columns = 36, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				    ),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    ChangedType = Table.TransformColumnTypes(
+				        PromotedHeaders,
+				        {
+				            {"EmployeeID", Int64.Type},
+				            {"EmployeeName", type text},
+				            {"Email", type text},
+				            {"ManagementLevel", Int64.Type},
+				            {"ManagementScope", type text},
+				            {"Designation", type text},
+				            {"Department", type text},
+				            {"Team", type text},
+				            {"ManagerID", Int64.Type},
+				            {"ManagerName", type text},
+				            {"HierarchyPath", type text},
+				            {"HierarchyDepth", Int64.Type},
+				            {"DirectReports", Int64.Type},
+				            {"SubtreeEmployeeCount", Int64.Type},
+				            {"OfficeLocation", type text},
+				            {"OfficeHoursStart", type time},
+				            {"OfficeHoursEnd", type time},
+				            {"EmploymentType", type text},
+				            {"EmploymentStatus", type text},
+				            {"DateOfJoining", type date},
+				            {"YearsOfService", type number},
+				            {"AnnualSalaryINR", Int64.Type},
+				            {"MonthlySalaryINR", Int64.Type},
+				            {"PerformanceScore", type number},
+				            {"AppraisalRating", type text},
+				            {"LowPerformerFlag", type logical},
+				            {"AttendancePct", type number},
+				            {"LeaveDaysYTD", type number},
+				            {"OvertimeHoursYTD", type number},
+				            {"EngagementScore", type number},
+				            {"GoalsAchievedPct", type number},
+				            {"TrainingHoursYTD", type number},
+				            {"ProjectsAssigned", Int64.Type},
+				            {"UtilizationPct", type number},
+				            {"AttritionRiskPct", type number},
+				            {"PromotionEligible", type logical}
+				        }
+				    )
+				in
+				    ChangedType
+
+	annotation PBI_ResultType = Table
+

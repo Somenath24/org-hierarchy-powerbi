@@ -1,0 +1,151 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d57d6f06ff740ee12fe1",
+  "position": {
+    "x": 20.58325935107791,
+    "y": 152.31611919797652,
+    "z": 1,
+    "height": 526.93143938759442,
+    "width": 982.50757969145218,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "organizationTreeVisual017D3F387FC247D9873BDFAE44E9015C",
+    "query": {
+      "queryState": {
+        "employeeName": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "EmployeeName"
+                }
+              },
+              "queryRef": "Employee.EmployeeName",
+              "nativeQueryRef": "EmployeeName"
+            }
+          ]
+        },
+        "managerName": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "ManagerName"
+                }
+              },
+              "queryRef": "Employee.ManagerName",
+              "nativeQueryRef": "ManagerName"
+            }
+          ]
+        },
+        "employeeId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "EmployeeID"
+                }
+              },
+              "queryRef": "Employee.EmployeeID",
+              "nativeQueryRef": "EmployeeID"
+            }
+          ]
+        },
+        "managerId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Employee"
+                    }
+                  },
+                  "Property": "ManagerID"
+                }
+              },
+              "queryRef": "Employee.ManagerID",
+              "nativeQueryRef": "ManagerID"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "24b2a2eb1d624862b7e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Employee"
+              }
+            },
+            "Property": "EmployeeName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "29ad16095866f4fa1b70",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Employee"
+              }
+            },
+            "Property": "ManagerName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9783b770548685a54b22",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Employee"
+              }
+            },
+            "Property": "EmployeeID"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "69c6dd8be1670a67b95e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Employee"
+              }
+            },
+            "Property": "ManagerID"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
